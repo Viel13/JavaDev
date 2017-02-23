@@ -1,10 +1,13 @@
 package br.com.fiap.dao;
 
-public class ApartamentoDAO {
 
-	public void create(Apartamento ap){
-		
-	}
+
+import br.com.fiap.entity.Apartamento;
+import br.com.fiap.exception.IdNotFoundException;
+
+public interface ApartamentoDAO extends GenericDAO<Apartamento, Integer>{
 	
+	
+	 
 	
 }
