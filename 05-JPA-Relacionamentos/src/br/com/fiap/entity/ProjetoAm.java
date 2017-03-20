@@ -40,6 +40,7 @@ public class ProjetoAm {
 	@Column(name="VL_NOTA")
 	private float nota;
 	
+	//cascade -> replica a acao configurada
 	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="CD_GRUPO")
 	private GrupoAm grupo;
