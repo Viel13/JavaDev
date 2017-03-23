@@ -26,14 +26,55 @@ public class Disciplina {
 	private int codigo;
 	@Column(name="nm_disc", length=200)
 	private String nome;
-	@Temporal(TemporalType.TIME)
-	@Column(name="ch_disc")
+		@Column(name="ch_disc")
 	private float cargaHoraria;
 	
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	@JoinTable(name="TB_ALUNO_DISCIPLINA" , joinColumns=@JoinColumn(name="FK_CD_DISCIPLINA"), 
 	inverseJoinColumns=@JoinColumn(name="FK_RM"))
 	private List<Aluno> alunos;
+
+	public Disciplina( String nome, float cargaHoraria) {
+		super();
+		
+		this.nome = nome;
+		this.cargaHoraria = cargaHoraria;
+		
+	}
+	
+	public Disciplina(){}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public float getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(float cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
 	
 	
 }

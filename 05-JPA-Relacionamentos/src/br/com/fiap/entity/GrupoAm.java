@@ -78,6 +78,14 @@ public class GrupoAm {
 		this.projeto = projeto;
 	}
 
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
 	
 
 	

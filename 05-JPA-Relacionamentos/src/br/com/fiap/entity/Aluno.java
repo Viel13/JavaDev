@@ -30,7 +30,7 @@ public class Aluno {
 	@JoinColumn(name="CD_GRUPO")
 	private GrupoAm grupo;
 	
-	@ManyToMany(mappedBy="alunos")
+	@ManyToMany(mappedBy="alunos", cascade=CascadeType.PERSIST)
 	private List<Disciplina> discs;
 	
 	public Aluno(String nome) {

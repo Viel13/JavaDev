@@ -1,6 +1,7 @@
 package br.com.fiap.entity;
 
 import java.util.Calendar;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,14 +48,14 @@ public class ProjetoAm {
 
 	
 	
-	public ProjetoAm(int codigo, Calendar dataEntrega, String tema, String observacao, float nota, GrupoAm grupo2) {
+	public ProjetoAm(int codigo, Calendar dataEntrega, String tema, String observacao, float nota, GrupoAm grupo) {
 		super();
 		this.codigo = codigo;
 		this.dataEntrega = dataEntrega;
 		this.tema = tema;
 		this.observacao = observacao;
 		this.nota = nota;
-		
+		this.grupo = grupo;
 	}
 	public ProjetoAm(){
 		
