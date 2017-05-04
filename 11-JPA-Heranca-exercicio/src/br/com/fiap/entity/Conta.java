@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -15,44 +16,50 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TB_CONTA")
-@SequenceGenerator(name="seqConta", sequenceName="SQ_TB_CONTA", allocationSize=1)
+@IdClass(ContaPK.class)
 @Inheritance(strategy=InheritanceType.JOINED)
-
 public class Conta {
 	
 	@Id
-	@Column(name="NR_AGENCIA")
+	@Column(name="NR_CONTA")
+	@SequenceGenerator(name="seqConta", sequenceName="SQ_TB_CONTA", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqConta")
-	private int codAgencia;
+	private int codConta;
 	
+	@Id
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="NR_AGENCIA")
 	private Agencia agencia;
 	
-	@Column(name="VL_SALDO")
+	@Column(name="VL_SALDO", nullable=false)
 	private double saldo;
 
-	public Conta(double saldo) {
+	
+	
+	
+
+	public Conta(Agencia agencia, double saldo) {
 		super();
+		this.agencia = agencia;
 		this.saldo = saldo;
 	}
-	
+
 	public Conta(){}
 
-	public int getCodAgencia() {
-		return codAgencia;
+	public int getCodConta() {
+		return codConta;
 	}
 
-	public void setCodAgencia(int codAgencia) {
-		this.codAgencia = codAgencia;
+	public void setCodConta(int codConta) {
+		this.codConta = codConta;
 	}
 
-	public int getNrConta() {
-		return getNrConta();
+	public Agencia getAgencia() {
+		return agencia;
 	}
 
-	public void setNrConta(int nrConta) {
-		this.nrConta = nrConta;
+	public void setAgencia(Agencia agencia) {
+		this.agencia = agencia;
 	}
 
 	public double getSaldo() {
@@ -62,6 +69,8 @@ public class Conta {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
 	
+
 	
 }
