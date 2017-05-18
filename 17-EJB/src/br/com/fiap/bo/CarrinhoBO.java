@@ -4,5 +4,7 @@ import javax.ejb.Remote;
 
 @Remote
 public interface CarrinhoBO {
+
 	double adicionarBitcoin(double bitcoin);
+	
 }
